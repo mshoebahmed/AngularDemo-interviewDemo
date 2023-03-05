@@ -37,6 +37,8 @@ This service should never return two half day appointment in the morning or two 
   public ngOnInit(): void {
     const appointments = this.appointmentService.getAppointments();
     this.datePicker = this.appointmentService.convertToDatepicker(appointments);
+    console.log("result array",this.datePicker );
+
     this.clear()
 
 
@@ -114,7 +116,7 @@ This service should never return two half day appointment in the morning or two 
     this.appointmentAN = undefined;
     this.appointmentFN = undefined;
     this.showAppointmens = [];
-    
+
 
     this.currentSession = {
       FN: false,

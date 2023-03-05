@@ -100,12 +100,10 @@ export class AppointmentService {
   public convertToDatepicker(appointments: IAppointment[]): IDatePicker {
 
 
-
-
     let iDatePickerItem: IDatePickerItem[] = [];
 
 
-    let map = appointments.forEach((item: IAppointment) => {
+    appointments.forEach((item: IAppointment) => {
       let iDatePickerSlot: IDatePickerSlot[] = [];
 
       var date = new Date(item.start).toISOString().slice(0, 10);
@@ -116,10 +114,6 @@ export class AppointmentService {
         startTime: startTime,
         endTime:endTime
       };
-
-
-
-
       let index = iDatePickerItem.findIndex(check =>
         check.date === date)
 
@@ -136,7 +130,6 @@ export class AppointmentService {
       }
     })
 
-    console.log("asas", iDatePickerItem);
 
     return {
       items: iDatePickerItem
