@@ -44,8 +44,6 @@ This service should never return two half day appointment in the morning or two 
 
   }
 
-  public appointments: IAppointment[] = this.appointmentService.getAppointments();
-
   public selectedDateAppointments: IDatePickerSlot[] = [];
   public FullDayAppointMents: IDatePickerSlot[] = [];
   public FNDayAppointMents: IDatePickerSlot[] = [];
@@ -74,7 +72,7 @@ This service should never return two half day appointment in the morning or two 
             appointment.session = 'FN';
             this.FNDayAppointMents.push(appointment);
           }
-          else if (Number.parseInt(appointment.startTime.substring(0, 2)) > 12 && Number.parseInt(appointment.endTime.substring(0, 2)) - Number.parseInt(appointment.startTime.substring(0, 2)) == 4) {
+          else if (Number.parseInt(appointment.startTime.substring(0, 2)) >= 12 && Number.parseInt(appointment.endTime.substring(0, 2)) - Number.parseInt(appointment.startTime.substring(0, 2)) == 4) {
             appointment.session = 'AN';
             this.ANDayAppointMents.push(appointment);
           }
